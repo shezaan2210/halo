@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import  { useState, useCallback } from 'react';
 import { ReactLenis } from 'lenis/react';
 import 'lenis/dist/lenis.css';
 import gsap from 'gsap';
