@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+
+
+
+
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('/fonts/tt-norms-pro-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('/fonts/tt-norms-pro-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+html, body {
+  font-family: 'TT Norms Pro', sans-serif;
+  background-color: #F5F5F5;
+  color: #000;
+  cursor: none;
+  /* Hide cursor for custom GSAP cursor on non-touch devices */
+ @media (pointer: fine) {
+  html, body {
+    cursor: none;
+  }
+  
+  /* Ensure links/buttons don't bring the default pointer back */
+  a, button {
+    cursor: none;
+  }
+}
+}
+
+* {
+  font-family: inherit;
+}
+
+/* Force hardware acceleration for GSAP animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Seamless infinite marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.backers-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+/* Button Fill Hover Effect */
+.btn-fill {
+  position: relative;
+  overflow: hidden;
+}
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333; /* Darker gray for the fill */
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  border-radius: 50% 50% 0 0;
+  z-index: -1;
+}
+.btn-fill:hover::before {
+  transform: translateY(-100%);
+  border-radius: 0;
+}
+
